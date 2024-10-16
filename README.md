@@ -28,8 +28,8 @@ El buzzer es un dispositivo que produce sonido al recibir una señal eléctrica.
 El SG-90 es un servomotor de bajo costo que permite un control preciso de la posición angular. Tiene un rango de movimiento de aproximadamente 180 grados y se utiliza comúnmente en aplicaciones de robótica y automatización, como el control de brazos robóticos o mecanismos de dirección.
 
 ### Celda de Carga (1 kg) con HX711
-<img src="https://github.com/user-attachments/assets/2b7285a3-4523-42de-a3dd-8ad9fc764cd6" alt="Descripción de la imagen" width="400" />
-<img src="https://github.com/user-attachments/assets/bf9e8caf-4b2b-46b9-a744-ba50ad936f40" alt="Descripción de la imagen" width="400" />
+<img src="https://github.com/user-attachments/assets/2b7285a3-4523-42de-a3dd-8ad9fc764cd6" alt="Descripción de la imagen" width="350" />
+<img src="https://github.com/user-attachments/assets/bf9e8caf-4b2b-46b9-a744-ba50ad936f40" alt="Descripción de la imagen" width="350" />
 
 La celda de carga es un sensor que mide el peso aplicando una fuerza. En este caso, tiene una capacidad de 1 kg. El HX711 es un amplificador de señal diseñado para leer la salida de la celda de carga, permitiendo medir con precisión el peso en aplicaciones de pesaje y balanzas.
 
