@@ -3,7 +3,6 @@
 El proyecto consiste en un alimentador automático de mascotas que consta de un tanque de comida y un plato que incluye una balanza para medir el peso de la comida que hay en él. Este dispositivo rellenará automáticamente el plato cuando esté vacío.
 
 ### Foto boceto:
-![image](https://github.com/user-attachments/assets/394c5591-4e80-48ad-8e4a-1ace56f7a526)
 
 https://medium.com/@lizeth.veraro/readme-qu%C3%A9-es-simples-pasos-para-crear-uno-4b82891626d7
 
@@ -22,11 +21,17 @@ El alimentador contará con una pantalla que mostrará información como la cant
 * 2 Botones genéricos
 
 ### Comunicación entre módulos y MCU
-* I2C
-* Interfaz digital (Clock & Data)
-* 
-*
+* i2c ( pantalla LCD, Servo, sensor de ultrasonido ) 
+*2 pines (Clock y Data), de forma serial muy similar a I2C (celda de carga)
+*PWM (servomotor ( como tal no es un sistema ) )
 
+## Conexiones básicas
+
+![image](https://github.com/user-attachments/assets/da3c9469-515d-4984-9959-3e53d2369183)
+
+
+DESPUES BORRAR
+![image](https://github.com/user-attachments/assets/394c5591-4e80-48ad-8e4a-1ace56f7a526)
 
 
 
