@@ -1,3 +1,7 @@
 # Alimentador-de-mascotas
 
-El proyecto consiste en un alimentador automático de mascotas que consta de un tanque de comida y un plato que incluye una balanza para medir el peso de la comida que hay en él. Este dispositivo rellenará automáticamente el plato cuando esté vacío. La cantidad de comida servida se podrá seleccionar mediante un botón que permitirá elegir entre perro grande, mediano y pequeño, con distintas configuraciones de llenado basadas en el peso. Además, otro botón permitirá cambiar la frecuencia con la que se rellena el plato, con intervalos de 4 horas.
+El proyecto consiste en un alimentador automático de mascotas que consta de un tanque de comida y un plato que incluye una balanza para medir el peso de la comida que hay en él. Este dispositivo rellenará automáticamente el plato cuando esté vacío.
+
+###Foto boceto:
+![image](https://github.com/user-attachments/assets/394c5591-4e80-48ad-8e4a-1ace56f7a526)
+
