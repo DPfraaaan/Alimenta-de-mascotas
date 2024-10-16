@@ -5,6 +5,6 @@ El proyecto consiste en un alimentador automático de mascotas que consta de un 
 ### Foto boceto:
 ![image](https://github.com/user-attachments/assets/394c5591-4e80-48ad-8e4a-1ace56f7a526)
 
-
+https://medium.com/@lizeth.veraro/readme-qu%C3%A9-es-simples-pasos-para-crear-uno-4b82891626d7
 
 
