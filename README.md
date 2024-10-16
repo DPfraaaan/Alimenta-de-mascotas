@@ -22,8 +22,8 @@ El alimentador contará con una pantalla que mostrará información como la cant
 
 ### Comunicación entre módulos y MCU
 * i2c ( pantalla LCD, Servo, sensor de ultrasonido ) 
-*2 pines (Clock y Data), de forma serial muy similar a I2C (celda de carga)
-*PWM (servomotor ( como tal no es un sistema ) )
+* 2 pines (Clock y Data), de forma serial muy similar a I2C (celda de carga)
+* PWM (servomotor ( como tal no es un sistema ) )
 
 ## Conexiones básicas
 
