@@ -25,12 +25,12 @@ El alimentador contará con una pantalla que mostrará información como la cant
 * 2 pines (Clock y Data), de forma serial muy similar a I2C (celda de carga)
 * PWM (servomotor ( como tal no es un sistema ) )
 
-## Conexiones básicas
+## Diagrama de conexión
 
 ![image](https://github.com/user-attachments/assets/da3c9469-515d-4984-9959-3e53d2369183)
 
 
-DESPUES BORRAR
+## Boceto de diseño
 ![image](https://github.com/user-attachments/assets/394c5591-4e80-48ad-8e4a-1ace56f7a526)
 
 
