@@ -12,13 +12,13 @@ El alimentador contará con una pantalla que mostrará información como la cant
 
 ### Componentes:
 * Sensor ultrasonido (Hc-sr04)
-* Leds (Verde ;Amarillo ;Rojo)
-* Buzzer )
+* Leds (Verde ;Rojo)
+* Buzzer 
 * Servo (sg-90)
 * ESP-32
 * Celda de carga (1kg) Hx711
 * Pantalla LCD 16x2 I2C
-* 2 Botones genéricos
+* 1 Botón genéricO
 
 ### Comunicación entre módulos y MCU
 * i2c ( pantalla LCD, Servo, sensor de ultrasonido ) 
