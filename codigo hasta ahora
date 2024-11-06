@@ -1,0 +1,136 @@
+## CODIGO HASTA AHORA
+#include <string.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "freertos/event_groups.h"
+#include "esp_event.h"
+#include "esp_err.h"
+#include "nvs_flash.h"
+#include "esp_log.h"
+
+//drivers 
+#include "driver/gpio.h"
+#include "driver/ledc.h"
+
+#include "driver/mcpwm.h"
+#include "soc/mcpwm_periph.h"
+
+#include "i2c-lcd.h" //estos en un folder src
+#include "driver/i2c.h"
+#include "unistd.h"
+
+// set 1 para stepper motor o 0 para servo
+#define STEPPER_MOTOR 0
+#define MCPWM_PIN           GPIO_NUM_18 // mcpwm pin para controlar el servo o stepper
+#define BUTTON_PIN          GPIO_NUM_19 // pin del boton selector
+#define LEDV_PIN            GPIO_NUM_5 // pin del led verde
+#define LEDR_PIN            GPIO_NUM_6 // pin del led rojo
+#define FEED_RATE 1333 // servo feed ratio
+#define FEED_REVERSAL 1722 // servo feed reversal ratio
+#define FEED_STOP 1500 // servo stop
+
+void mcpwm_pin_init()
+{
+    mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM0A, MCPWM_PIN); // set GPIO 18 as PWM0A, to which servo or stepper is connected
+
+    mcpwm_config_t pwm_config;
+#if STEPPER_MOTOR == 1
+        pwm_config.frequency = 150; // frequency = 150Hz
+#else
+        pwm_config.frequency = 50; // frequency = 50Hz, i.e. for every servo motor time period should be 20ms
+#endif
+        pwm_config.cmpr_a = 0; // duty cycle of PWMxA = 0
+        pwm_config.cmpr_b = 0; // duty cycle of PWMxb = 0
+        pwm_config.counter_mode = MCPWM_UP_COUNTER;
+        pwm_config.duty_mode = MCPWM_DUTY_MODE_0;
+        mcpwm_init(MCPWM_UNIT_0, MCPWM_TIMER_0, &pwm_config);
+}
+
+void gpio_pins_init()
+{
+#if STEPPER_MOTOR == 1
+    gpio_config_t step_dir_config, step_en_config;
+#endif
+    gpio_config_t btn_config, led_config;
+
+    btn_config.mode = GPIO_MODE_INPUT; // set as input
+    btn_config.pin_bit_mask = (1 << BUTTON_PIN); // bitmask
+    btn_config.pull_up_en = GPIO_PULLUP_ENABLE; // enable pullup
+    btn_config.pull_down_en = GPIO_PULLDOWN_DISABLE; // disable pulldown
+    gpio_config(&btn_config);
+
+    led_config.mode = GPIO_MODE_OUTPUT; // set as output
+    led_config.pin_bit_mask = (1 << LED_PIN); // bitmask
+    led_config.pull_up_en = GPIO_PULLUP_DISABLE; // disable pullup
+    led_config.pull_down_en = GPIO_PULLDOWN_DISABLE; // disable pulldown
+    gpio_config(&led_config);
+
+#if STEPPER_MOTOR == 1
+    step_dir_config.mode = GPIO_MODE_OUTPUT; // set as output
+    step_dir_config.pin_bit_mask = (1 << STEPPER_DIR_PIN); // bitmask
+    step_dir_config.pull_up_en = GPIO_PULLUP_DISABLE; // disable pullup
+    step_dir_config.pull_down_en = GPIO_PULLDOWN_DISABLE; // disable pulldown
+    gpio_config(&step_dir_config);
+
+    step_en_config.mode = GPIO_MODE_OUTPUT; // set as output
+    step_en_config.pin_bit_mask = (1 << STEPPER_EN_PIN); // bitmask
+    step_en_config.pull_up_en = GPIO_PULLUP_DISABLE; // disable pullup
+    step_en_config.pull_down_en = GPIO_PULLDOWN_DISABLE; // disable pulldown
+    gpio_config(&step_en_config);
+
+    gpio_set_level(STEPPER_EN_PIN, 1); // disable driver
+
+    gpio_set_level(STEPPER_DIR_PIN, 1); // set direction
+        #endif
+
+    gpio_set_level(LED_PIN, 0); // led off
+}
+
+void feed()
+{
+    gpio_set_level(LED_PIN, 1); // led on
+#if STEPPER_MOTOR == 1
+    gpio_set_level(STEPPER_EN_PIN, 0); // enable driver
+    mcpwm_set_duty(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, 50.0); // start feeding for 2s
+    vTaskDelay(2000 / portTICK_RATE_MS);
+    gpio_set_level(STEPPER_DIR_PIN, 0); // reverse direction for 0.5s to prevent clogging
+    vTaskDelay(500 / portTICK_RATE_MS);
+    gpio_set_level(STEPPER_DIR_PIN, 1); // continue feeding for 2s
+    vTaskDelay(2000 / portTICK_RATE_MS);
+    mcpwm_set_duty(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, 0.0); // stop feeding
+    gpio_set_level(STEPPER_EN_PIN, 1); // disable driver
+#else
+    mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, FEED_RATE); // start feeding for 2s
+    vTaskDelay(2000 / portTICK_RATE_MS);
+    mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, FEED_REVERSAL); // reverse direction for 0.5s to prevent clogging
+    vTaskDelay(500 / portTICK_RATE_MS);
+    mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, FEED_RATE); // continue feeding for 2s
+    vTaskDelay(2000 / portTICK_RATE_MS);
+    mcpwm_set_duty_in_us(MCPWM_UNIT_0, MCPWM_TIMER_0, MCPWM_OPR_A, FEED_STOP); // stop feeding
+#endif
+    gpio_set_level(LED_PIN, 0); // led off
+}
+
+void button_task(void *pvParameters)
+{
+    for (;;) {
+
+        if ((gpio_get_level(BUTTON_PIN) == 0) && (busy == false)) {
+            busy = true;
+            feed();
+            busy = false;
+        }
+
+        vTaskDelay(10 / portTICK_PERIOD_MS);
+    }
+}
+
+void app_main()
+{
+
+    mcpwm_pin_init(); // init MCPWM pin
+    gpio_pins_init(); // init GPIO for push-button and led
+
+    // start the push-button polling task
+    xTaskCreate(&button_task, "button", 2048, NULL, 5, NULL);
+}
