@@ -25,10 +25,6 @@ El alimentador contará con una pantalla que mostrará información como la cant
 
 ![image](https://github.com/user-attachments/assets/da3c9469-515d-4984-9959-3e53d2369183)
 
-
-## Boceto de diseño
-![image](https://github.com/user-attachments/assets/394c5591-4e80-48ad-8e4a-1ace56f7a526)
-
 ## Actualizaión:
 Un botón fue eliminado debido a que no era relevante
 * Se opto por solo un botón que permite cambiar los intervalos de relleno del plato de comida de a 4hs cada intervalo.
