@@ -30,10 +30,12 @@ Un botón fue eliminado debido a que no era relevante
 * Se opto por solo un botón que permite cambiar los intervalos de relleno del plato de comida de a 4hs cada intervalo.
 
 ## Objetivos
+* Lograr el funcionamiento propuesto en un inicio haciendo un dispositivo funcional y práctico
 
 ## Propuestas a Futuro
-
-
+* Mejorar el diseño del dispositivo, (agregar más piezas impresas en 3D).
+* Simplificar y mejorar las piezas impresas en 3D
+* Agregar mas funcionalidades para hacerlo menos limitado.
 
 
 
