@@ -1,6 +1,6 @@
 ## Codigo para el esp32
 
-## bibliografia
+## bibliografía
 https://www.youtube.com/watch?v=jJQG936B6uM
 https://www.youtube.com/watch?v=OKbQIeM_1Bs
 https://github.com/hardrive9000/PetFeeder/blob/master/Code/main/main.c
