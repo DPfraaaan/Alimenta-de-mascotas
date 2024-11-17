@@ -13,6 +13,8 @@ Ademas de las piezas diseñadas en 3D para el tanque se utilizó un bidón de 5 
 ## Metodos de unión
 * Cinta doble faz
 * Silicona
-  
 
+## Case; placa y componentes principales.
+
+![Captura](https://github.com/user-attachments/assets/2fbe7199-ccbc-48ff-b3b4-59ee6ad0b47b)
 
