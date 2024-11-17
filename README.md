@@ -33,6 +33,12 @@ El alimentador contará con una pantalla que mostrará información como la cant
 Un botón fue eliminado debido a que no era relevante
 * Se opto por solo un botón que permite cambiar los intervalos de relleno del plato de comida de a 4hs cada intervalo.
 
+## Objetivos
+
+## Propuestas a Futuro
+
+
+
 
 
 
