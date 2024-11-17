@@ -37,6 +37,10 @@ Un botón fue eliminado debido a que no era relevante
 * Simplificar y mejorar las piezas impresas en 3D
 * Agregar mas funcionalidades para hacerlo menos limitado.
 
+## Problemas encontrados durante el proceso:
+Es importante tener en cuenta que el ESP trabaja con un nivel lógico de voltajes de 3,3 V, entonces la mayoría de sensores podrían quemar los GPIOs del ESP por lo que lo ideal es implementar un logic level shifter de 5v <-- (nivel lógico de la mayoría de sensores implementados) a 3,3 V.
+
+
 
 
 
