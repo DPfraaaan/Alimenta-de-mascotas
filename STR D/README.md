@@ -8,6 +8,8 @@ Ademas de las piezas diseñadas en 3D para el tanque se utilizó un bidón de 5 
 
 ![unnamed](https://github.com/user-attachments/assets/c518c0e6-13a0-4769-be98-566c181dc457)
 
+(En la imágen se puede observar una boquilla que se diseñó para ayudar al servo en su tarea como valvula de apertura y cierre)
+
 ## Metodos de unión
 * Cinta doble faz
 * Silicona
