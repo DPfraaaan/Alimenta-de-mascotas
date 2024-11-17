@@ -8,7 +8,7 @@ https://medium.com/@lizeth.veraro/readme-qu%C3%A9-es-simples-pasos-para-crear-un
 
 ### Funcionamiento: 
 Con un botón se permitirá cambiar la frecuencia con la que se rellena el plato, con intervalos de 4 horas.
-El alimentador contará con una pantalla que mostrará información como la cantidad de comida en gramos en el plato y el tiempo restante para el próximo rellenado, en caso de que el animal haya consumido toda la comida del plato actual. Por último, incluirá un sensor ultrasónico que medirá el nivel del tanque. Si está lleno, se encenderá un LED verde; si está medio, un LED amarillo; y si está bajo, un LED rojo. Cuando el nivel esté muy bajo, se activará un buzzer como alarma.
+El alimentador contará con una pantalla que mostrará información como la cantidad de comida en gramos en el plato y el tiempo restante para el próximo rellenado, en caso de que el animal haya consumido toda la comida del plato actual. Por último, incluirá un sensor ultrasónico que medirá el nivel del tanque. Si está lleno, se encenderá un LED verde y si está bajo, un LED rojo. Cuando el nivel esté muy bajo, se activará un buzzer como alarma.
 
 ### Componentes:
 * Sensor ultrasonido (Hc-sr04)
