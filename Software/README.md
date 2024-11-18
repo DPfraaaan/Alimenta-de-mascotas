@@ -68,16 +68,5 @@ flowchart TD
     style U fill:#DDA0DD
 ```
 
-and a contents of `src/main.c`:
-```
-#include <Foo.h>
-#include <Bar.h>
-
-int main (void)
-{
-  ...
-}
-
-```
 
 
