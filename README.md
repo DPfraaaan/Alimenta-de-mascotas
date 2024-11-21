@@ -1,4 +1,4 @@
-## Alimentador-de-mascotas
+# Alimentador-de-mascotas
 
 El proyecto consiste en un alimentador automático de mascotas que consta de un tanque de comida y un plato que incluye una balanza para medir el peso de la comida que hay en él. Este dispositivo rellenará automáticamente el plato cuando esté vacío.
 
@@ -49,7 +49,7 @@ Un botón fue eliminado debido a que no era relevante
 
 Básicamente cuenta con un LDR que cuando detecta mucha luz (que esta de día), llena el recipiente de comida del animal, esto lo hace una vez en el día. Cuando es de noche o hay poca luz hablita la lectura del tanque, cuando está en niveles de comida adecuados prende un led verde, intermitente; cuando esta en niveles críticos prede un led rojo y un buzer intermitente. El botón se mantuvo este permite selecionar entre perro Grande (G), Mediano (M), Chico (C). Como no tenemos una báscula para medir los niveles de comida esto lo que hace es cambiar el tiempo de apertura del servo. Más tiempo, más comida (ej perro grande), menos tiempo menos comida (perro chico). La informacón de tipo de perro estqaa mostrada en el LCD.
 
-# ¡¡Informaciónd e hadware y software se encuentran en el github!! 
+### ¡¡Información de hadware y software se encuentran en el github!! 
 
 
 
