@@ -42,7 +42,7 @@ Un botón fue eliminado debido a que no era relevante
 * En nuestro caso la configuración de la resistencia de carga fue muy complicada y no pudimos conseguir el funcionamiento de esta; por esto es que decidimos hacer una versión del alimentador sin esta.
 
 ## Ideas para una futrura implementación
-* Lograr el funcionamiento de la báscula para cumplir con la idea inicial. (o buscasr alternativa a esta).
+* Lograr el funcionamiento de la báscula para cumplir con la idea inicial. (o buscar alternativa a esta).
 * Comunicación Wifi o bluethoot o un servidor para aumentar las funcionalidades
 
 ## Cómo funciona nuestra última versión sin báscula
