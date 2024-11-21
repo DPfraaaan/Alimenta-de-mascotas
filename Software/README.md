@@ -8,7 +8,7 @@ https://www.youtube.com/watch?v=jJQG936B6uM
 ### Hx-711 ( celda de carga )  
 https://github.com/akshayvernekar/HX711_IDF/tree/master
 
-## Diagrama de flujo
+## Diagrama de flujo bascula
 
 ```mermaid
 flowchart TD
@@ -89,7 +89,7 @@ flowchart TD
     class Q,R,S,T,U,V,W,X,Y,Z,AA,AB,AC,AD,AE hardware
 ```
 
-## CÓDIGO FUNCIONAL
+## Diagrama de flujo LDR
 ```mermaid
 flowchart TD
     %% Style definitions
