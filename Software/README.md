@@ -12,65 +12,6 @@ https://github.com/akshayvernekar/HX711_IDF/tree/master
 
 ```mermaid
 flowchart TD
-    A[Start] --> B[Initialize I2C & LCD]
-    B --> C[Initialize GPIO Pins]
-    C --> D[Initialize Servo & Ultrasonic]
-    D --> E[Configure Hardware Timer]
-    
-    %% Main program flow
-    E --> F{Main Loop}
-    F --> G[Check Button Press]
-    
-    %% Button handling
-    G --> H{Button Pressed?}
-    H -- Yes --> I[Increment Timer Hours]
-    I --> J{Hours >= 24?}
-    J -- Yes --> K[Reset Hours to 0]
-    J -- No --> F
-    K --> F
-    
-    %% Timer callback flow
-    F --> L{Timer Interrupt\n Every Minute}
-    L --> M[Increment Minutes]
-    M --> N{Minutes >= Set Hours?}
-    
-    %% Distance checking and feeding logic
-    N -- Yes --> O[Read Ultrasonic Distance]
-    O --> P{Distance > 100cm?}
-    P -- Yes --> Q[Toggle Red LED\nShow 'Falta comida']
-    P -- No --> R{50cm < Distance <= 100cm?}
-    R -- Yes --> S[Turn On Green LED\nShow 'Comida ok']
-    R -- No --> T[Turn Off Green LED]
-    
-    %% Weight checking and servo control
-    Q --> U[Check Food Weight]
-    S --> U
-    T --> U
-    U --> V{Weight > 1.5kg?}
-    V -- Yes --> W[Show 'Hay comida']
-    V -- No --> X[Move Servo to 90°]
-    X --> Y[Wait 500ms]
-    Y --> Z[Move Servo to 0°]
-    
-    %% Loop back
-    W --> F
-    Z --> F
-    
-    %% LCD Update Task
-    F --> AA[LCD Update Task]
-    AA --> BB[Display Status & Time]
-    BB --> F
-
-    style A fill:#90EE90
-    style F fill:#FFB6C1
-    style L fill:#FFD700
-    style O fill:#87CEEB
-    style U fill:#DDA0DD
-```
-### Segunda interación del código
-
-```mermaid
-flowchart TD
     %% Main initialization
     A[Start] --> B[Initialize I2C & LCD]
     B --> C[General Config\n- GPIO Setup\n- Servo PWM Setup]
@@ -147,5 +88,67 @@ flowchart TD
     class K,L,AK,AL anyCore
     class Q,R,S,T,U,V,W,X,Y,Z,AA,AB,AC,AD,AE hardware
 ```
+
+## CÓDIGO FUNCIONAL
+```mermaid
+flowchart TD
+    %% Style definitions
+    classDef start fill:#4CAF50,stroke:#45a049,color:white
+    classDef init fill:#2196F3,stroke:#1976D2,color:white
+    classDef process fill:#90CAF9,stroke:#64B5F6,color:black
+    classDef decision fill:#FFA726,stroke:#FB8C00,color:black
+    classDef alert fill:#EF5350,stroke:#E53935,color:white
+    classDef success fill:#66BB6A,stroke:#4CAF50,color:white
+    classDef servo fill:#AB47BC,stroke:#8E24AA,color:white
+    classDef return fill:#78909C,stroke:#607D8B,color:white
+
+    A[Start] --> B[Initialize Hardware]
+    B --> C[Display 'Alimentador' on LCD]
+    C --> D{Main Loop}
+    
+    D --> E[Read Button State]
+    E --> F{Button Pressed?}
+    F -->|Yes| G[Increment Pet Size]
+    G --> H[Update LCD with Size]
+    H --> I{5 seconds passed?}
+    I -->|Yes| J[Display 'seleccionado']
+    I -->|No| D
+    F -->|No| K[Check LDR Value]
+    
+    K --> L{Is it Night?<br/>LDR > threshold}
+    L -->|Yes| M[Check Food Level<br/>with Ultrasonic]
+    M --> N{Distance > Max_cm?}
+    N -->|Yes| O[Blink Red LED<br/>Sound Buzzer]
+    N -->|No| P{Min_cm < Distance < Max_cm?}
+    P -->|Yes| Q[Blink Green LED]
+    
+    L -->|No| R{LDR < 600 AND<br/>servobreaker true?}
+    R -->|Yes| S[Open Servo 90°]
+    S --> T{Check Pet Size}
+    T -->|Large| U[Wait 2s]
+    T -->|Medium| V[Wait 1s]
+    T -->|Small| W[Wait 0.5s]
+    U --> X[Close Servo 0°]
+    V --> X
+    W --> X
+    X --> Y[Set servobreaker false]
+    
+    O --> D
+    Q --> D
+    Y --> D
+    P -->|No| D
+    R -->|No| D
+
+    %% Apply styles
+    class A start
+    class B,C init
+    class E,G,H,J,K,M process
+    class F,I,L,N,P,R,T decision
+    class O alert
+    class Q success
+    class S,U,V,W,X,Y servo
+    class D return
+```
+
 
 
