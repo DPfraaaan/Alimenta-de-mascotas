@@ -45,7 +45,7 @@ Debido a distintos problemas.
 * Lograr el funcionamiento propuesto en un inicio haciendo un dispositivo funcional y práctico
 
 ## Alcances
-* No se completó en sí como se planteop el proyecto, pero gracias a alternativas conseguimos un comedero automatico sin el uso de la báscula
+* No se completó en sí como se planteo inicialmente el proyecto, pero gracias a alternativas conseguimos un comedero automatico sin el uso de la báscula
 
 ## Problemas encontrados durante el proceso:
 * Es importante tener en cuenta que el ESP trabaja con un nivel lógico de voltajes de 3,3 V, entonces la algunos de sensores u actuadores podrían no funcionar con los niveles lógicos del ESP por lo que lo ideal es implementar un logic level shifter de 5v <-- (nivel lógico de la mayoría de sensores implementados) a 3,3 V. (al final todos nuestros actuadores, sensores y LCD permitían su correcto funcionamiento con 3,3 V por lo que no se implementó).
