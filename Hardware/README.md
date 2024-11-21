@@ -49,4 +49,18 @@ La celda de carga es un sensor que mide el peso aplicando una fuerza. En este ca
 
 Esta pantalla LCD tiene 16 columnas y 2 filas, y utiliza la interfaz I2C para comunicarse con otros dispositivos, lo que simplifica el cableado y la programación. Es ideal para mostrar información, como datos del sensor o mensajes al usuario, en proyectos electrónicos.
 
-## LDR Versión 2
+------------------
+
+## SI usa LDR
+### LDR
+![images](https://github.com/user-attachments/assets/0081c08b-2372-4e1f-861b-84044891c9cc)
+
+LDR de 40 KOHM
+* Si se desea se puede confiugurar un PULL UP desede las mismas configuraciones del ESP.
+* En este caso se utilizo un PULL UP físico.
+
+Diagrama Pull UP
+
+
+
+
