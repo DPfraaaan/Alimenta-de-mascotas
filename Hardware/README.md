@@ -48,3 +48,5 @@ La celda de carga es un sensor que mide el peso aplicando una fuerza. En este ca
 <img src="https://github.com/user-attachments/assets/690706dc-7f37-4af6-bc7c-9b95d7367554" alt="Descripción de la imagen" width="400" />
 
 Esta pantalla LCD tiene 16 columnas y 2 filas, y utiliza la interfaz I2C para comunicarse con otros dispositivos, lo que simplifica el cableado y la programación. Es ideal para mostrar información, como datos del sensor o mensajes al usuario, en proyectos electrónicos.
+
+## LDR Versión 2
