@@ -38,7 +38,19 @@ Un botón fue eliminado debido a que no era relevante
 * Agregar mas funcionalidades para hacerlo menos limitado.
 
 ## Problemas encontrados durante el proceso:
-Es importante tener en cuenta que el ESP trabaja con un nivel lógico de voltajes de 3,3 V, entonces la mayoría de sensores podrían quemar los GPIOs del ESP por lo que lo ideal es implementar un logic level shifter de 5v <-- (nivel lógico de la mayoría de sensores implementados) a 3,3 V.
+* Es importante tener en cuenta que el ESP trabaja con un nivel lógico de voltajes de 3,3 V, entonces la algunos de sensores u actuadores podrían no funcionar con los niveles lógicos del ESP por lo que lo ideal es implementar un logic level shifter de 5v <-- (nivel lógico de la mayoría de sensores implementados) a 3,3 V. (al final todos nuestros actuadores, sensores y LCD permitían su correcto funcionamiento con 3,3 V por lo que no se implementó).
+* En nuestro caso la configuración de la resistencia de carga fue muy complicada y no pudimos conseguir el funcionamiento de esta; por esto es que decidimos hacer una versión del alimentador sin esta.
+
+## Ideas para una futrura implementación
+* Lograr el funcionamiento de la báscula para cumplir con la idea inicial. (o buscasr alternativa a esta).
+* Comunicación Wifi o bluethoot o un servidor para aumentar las funcionalidades
+
+## Cómo funciona nuestra última versión sin báscula
+
+Básicamente cuenta con un LDR que cuando detecta mucha luz (que esta de día), llena el recipiente de comida del animal, esto lo hace una vez en el día. Cuando es de noche o hay poca luz hablita la lectura del tanque, cuando está en niveles de comida adecuados prende un led verde, intermitente; cuando esta en niveles críticos prede un led rojo y un buzer intermitente. El botón se mantuvo este permite selecionar entre perro Grande (G), Mediano (M), Chico (C). Como no tenemos una báscula para medir los niveles de comida esto lo que hace es cambiar el tiempo de apertura del servo. Más tiempo, más comida (ej perro grande), menos tiempo menos comida (perro chico). La informacón de tipo de perro estqaa mostrada en el LCD.
+
+# ¡¡Informaciónd e hadware y software se encuentran en el github!! 
+
 
 
 
