@@ -59,7 +59,16 @@ LDR de 40 KOHM
 * Si se desea se puede confiugurar un PULL UP desede las mismas configuraciones del ESP.
 * En este caso se utilizo un PULL UP físico.
 
-Diagrama Pull UP
+### Diagrama Pull UP (RPU 10 KOHM)
+
+![Captura de pantalla 2024-11-21 201753](https://github.com/user-attachments/assets/5da0cc2e-6c0b-43cd-ac43-daf784ed5edc)
+
+## Aviso
+
+#### ¡Se pueden usar los pines que quedan libres al no usar la báscula, quedando 1 sin uso!
+EJ:
+  
+![Captura de pantalla 2024-11-21 202111](https://github.com/user-attachments/assets/9dbbf78e-1c46-459f-856f-ebb6c59db19a)
 
 
 
