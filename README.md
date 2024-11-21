@@ -15,6 +15,7 @@ El alimentador contará con una pantalla que mostrará información como la cant
 * Celda de carga (1kg) Hx711
 * Pantalla LCD 16x2 I2C
 * 1 Botón genéricO
+* LDR
 
 ### Comunicación entre módulos y MCU
 * i2c ( pantalla LCD, Servo, sensor de ultrasonido ) 
@@ -29,13 +30,19 @@ El alimentador contará con una pantalla que mostrará información como la cant
 Un botón fue eliminado debido a que no era relevante
 * Se opto por solo un botón que permite cambiar los intervalos de relleno del plato de comida de a 4hs cada intervalo.
 
+### Actualización V3:
+Debido a distintos problemas.
+* Se quitó celda de carga.
+* Se agregó LDR.
+* Se cambió el planteamento del funcionamiento.
+  
+¡¡Más info abajo del README!!
+
 ## Objetivos
 * Lograr el funcionamiento propuesto en un inicio haciendo un dispositivo funcional y práctico
 
-## Propuestas a Futuro
-* Mejorar el diseño del dispositivo, (agregar más piezas impresas en 3D).
-* Simplificar y mejorar las piezas impresas en 3D
-* Agregar mas funcionalidades para hacerlo menos limitado.
+## Alcances
+* No se completó en sí como se planteop el proyecto, pero gracias a alternativas conseguimos un comedero automatico sin el uso de la báscula
 
 ## Problemas encontrados durante el proceso:
 * Es importante tener en cuenta que el ESP trabaja con un nivel lógico de voltajes de 3,3 V, entonces la algunos de sensores u actuadores podrían no funcionar con los niveles lógicos del ESP por lo que lo ideal es implementar un logic level shifter de 5v <-- (nivel lógico de la mayoría de sensores implementados) a 3,3 V. (al final todos nuestros actuadores, sensores y LCD permitían su correcto funcionamiento con 3,3 V por lo que no se implementó).
@@ -44,6 +51,8 @@ Un botón fue eliminado debido a que no era relevante
 ## Ideas para una futrura implementación
 * Lograr el funcionamiento de la báscula para cumplir con la idea inicial. (o buscar alternativa a esta).
 * Comunicación Wifi o bluethoot o un servidor para aumentar las funcionalidades
+* Mejorar el diseño del dispositivo, (agregar más piezas impresas en 3D).
+
 
 ## Cómo funciona nuestra última versión sin báscula
 
