@@ -51,7 +51,7 @@ Esta pantalla LCD tiene 16 columnas y 2 filas, y utiliza la interfaz I2C para co
 
 ------------------
 
-## SI usa LDR
+## Si usa LDR
 ### LDR
 ![images](https://github.com/user-attachments/assets/0081c08b-2372-4e1f-861b-84044891c9cc)
 
