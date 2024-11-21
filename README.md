@@ -15,6 +15,9 @@ El alimentador contará con una pantalla que mostrará información como la cant
 * Celda de carga (1kg) Hx711
 * Pantalla LCD 16x2 I2C
 * 1 Botón genéricO
+
+#### Después se agrego:
+
 * LDR
 
 ### Comunicación entre módulos y MCU
