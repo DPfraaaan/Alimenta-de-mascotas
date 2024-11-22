@@ -104,7 +104,7 @@ flowchart TD
 
     A[Start] --> B[Initialize Hardware]
     B --> C[Display 'Alimentador' on LCD]
-    C --> D{Main Loop}
+    C --> D{Main}
     
     D --> E[Read Button State]
     E --> F{Button Pressed?}
