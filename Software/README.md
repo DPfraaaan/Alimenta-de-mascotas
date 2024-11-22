@@ -1,6 +1,5 @@
-## Codigo para el esp32
 
-## bibliografía
+# Bibliografía
 
 ### Servo 
 https://www.youtube.com/watch?v=jJQG936B6uM 
